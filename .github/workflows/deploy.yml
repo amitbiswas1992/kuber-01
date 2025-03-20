@@ -2,10 +2,11 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: 
-      - "master"
+    branches:
+      - '**'  # This will run on any branch push
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - '**'  # This will run on PRs targeting any branch
 
 jobs:
   build-and-deploy:
@@ -20,33 +21,39 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       
+    - name: Get branch name
+      id: branch_name
+      run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | sed 's/[^a-zA-Z0-9]/-/g')" >> $GITHUB_ENV
+      
     - name: Build the Docker image
-      run: docker build -t ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ github.sha }} -t ${{secrets.DOCKER_USERNAME}}/kuber-01:latest .
+      run: |
+        docker build -t ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-${{ github.sha }} -t ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest .
     
     - name: Push to DockerHub
       run: |
-        docker push ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ github.sha }}
-        docker push ${{secrets.DOCKER_USERNAME}}/kuber-01:latest
+        docker push ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-${{ github.sha }}
+        docker push ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest
     
     - name: Security Scan with Trivy
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: "${{secrets.DOCKER_USERNAME}}/kuber-01:latest"
+        image-ref: "${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest"
         format: "table"
         ignore-unfixed: true
         severity: "HIGH,CRITICAL"
         exit-code: 0
     
     - name: SSH into EC2 & Deploy
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'  # Only deploy from main/master
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ubuntu
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          sudo docker pull ${{secrets.DOCKER_USERNAME}}/kuber-01:latest
+          sudo docker pull ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest
           sudo docker rm -f kuber-01-container || true
-          sudo docker run -d -p 80:3000 --name kuber-01-container ${{secrets.DOCKER_USERNAME}}/kuber-01:latest
+          sudo docker run -d -p 80:3000 --name kuber-01-container ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest
     
     - name: Send Slack Notification (Success)
       if: success()
@@ -59,7 +66,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Ref*\n<${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }}|${{ github.ref }}>"
+                  "text": "*Branch*\n`${{ env.BRANCH_NAME }}`"
                 },
                 {
                   "type": "mrkdwn",
@@ -84,7 +91,7 @@ jobs:
               "type": "section",
               "text": {
                 "type": "mrkdwn",
-                "text": "✅ CI/CD Pipeline Successful!\n:tada: The build and deployment for *${{ github.repository }}* was successful! :white_check_mark:"
+                "text": "✅ CI/CD Pipeline Successful!\n:tada: The build for branch *${{ env.BRANCH_NAME }}* was successful! :white_check_mark:"
               }
             }
           ]
@@ -101,7 +108,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Ref*\n<${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }}|${{ github.ref }}>"
+                  "text": "*Branch*\n`${{ env.BRANCH_NAME }}`"
                 },
                 {
                   "type": "mrkdwn",
@@ -126,13 +133,12 @@ jobs:
               "type": "section",
               "text": {
                 "type": "mrkdwn",
-                "text": "❌ CI/CD Pipeline Failed!\n:warning: The build or deployment for *${{ github.repository }}* failed! Check GitHub Actions logs."
+                "text": "❌ CI/CD Pipeline Failed!\n:warning: The build for branch *${{ env.BRANCH_NAME }}* failed! Check GitHub Actions logs."
               }
             }
           ]
         }' ${{ secrets.SLACK_WEBHOOK_URL }}
     
-    # Send Email Notification (Success)
     - name: Send Email Notification (Success)
       if: success()
       uses: dawidd6/action-send-mail@v3
@@ -141,8 +147,8 @@ jobs:
         server_port: 465
         username: ${{ secrets.MAIL_USERNAME }}
         password: ${{ secrets.MAIL_PASSWORD }}
-        subject: CI/CD Pipeline Successful
-        body: The build and deployment for ${{ github.repository }} was successful!
+        subject: CI/CD Pipeline Successful - Branch ${{ env.BRANCH_NAME }}
+        body: The build for branch ${{ env.BRANCH_NAME }} was successful!
         to: bamit9160@gmail.com
         from: ${{ secrets.MAIL_USERNAME }}
 
@@ -154,7 +160,7 @@ jobs:
         server_port: 465
         username: ${{ secrets.MAIL_USERNAME }}
         password: ${{ secrets.MAIL_PASSWORD }}
-        subject: CI/CD Pipeline Failed
-        body: The build or deployment for ${{ github.repository }} failed! Check GitHub Actions logs.
+        subject: CI/CD Pipeline Failed - Branch ${{ env.BRANCH_NAME }}
+        body: The build for branch ${{ env.BRANCH_NAME }} failed! Check GitHub Actions logs.
         to: bamit9160@gmail.com
         from: ${{ secrets.MAIL_USERNAME }}
