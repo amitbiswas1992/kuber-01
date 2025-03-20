@@ -1,204 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>hightech</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- awesome fontfamily -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-   </head>
-   <!-- body -->
-   <body class="main-layout inner_page">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="" /></div>
-      </div>
-      <!-- end loader -->
-      <!-- header -->
-      <header>
-         <div class="header">
+
+<head>
+    <title>Nathan — Personal Portfolio Website</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="" name="description" >
+    <meta content="" name="keywords" >
+    <meta content="" name="author" >
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
+    <link href="css/coloring.css" rel="stylesheet" type="text/css" >
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
+
+</head>
+
+<body class="dark-scheme">
+    <div id="wrapper">
+        <div class="float-text show-on-scroll">
+            <span><a href="#">Scroll to top</a></span>
+        </div>
+        <div class="scrollbar-v show-on-scroll"></div>
+        
+        <!-- page preloader begin -->
+        <div id="de-loader"></div>
+        <!-- page preloader close -->
+
+        <!-- content begin -->
+        <div class="section-dark no-bottom no-top" id="content">
+
+            <div id="top"></div>
+
+            <section class="no-top">
+
+                <div class="text-fit-wrapper">
+                    <h1 class="text-fit wow">About Me</h1>
+                    <div class="d-menu-1 wow" data-wow-delay=".3s">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active"><a href="about.html">About Me</a></li>
+                            <li><a href="services.html">What I Do</a></li>
+                            <li><a href="works.html">Works</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Hire Me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="subtitle wow fadeInUp" data-wow-delay=".3s">Who I Am</div>
+                        </div>
+                        <div class="col-lg-10">                            
+                            <h2 class="lh-1  wow fadeInUp" data-wow-delay=".4s">Transforming your vision into a dynamic web experience through meticulously crafted designs, intuitive user interfaces, and robust functionality.</h2>
+                            <div class="row g-4 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="col-sm-6">
+                                    <p>Hi there! I’m Nathan, a web designer with a passion for creating exceptional digital experiences. With over 15 years in the industry, I have skills in designing websites that are not only visually appealing but also functional and user-friendly.</p>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <p>I specialize in crafting bespoke websites using the latest technologies and design trends, including HTML5, CSS3, JavaScript, and popular content management systems like WordPress, Joomla, and Shopify.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-2">
+                            <div class="subtitle wow fadeInUp" data-wow-delay=".3s">My Skills</div>
+                        </div>
+                        <div class="col-lg-10">                            
+                            <div class="row g-4 gx-5">
+                                <div class="col-sm-3 col-6 wow fadeInRight" data-wow-delay=".4s">
+                                    <div class="text-center">
+                                        <img src="images/logo/figma.webp" class="w-80px mb-3" alt="">
+                                        <h4>Figma</h4>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-6 wow fadeInRight" data-wow-delay=".5s">
+                                    <div class="text-center">
+                                        <img src="images/logo/photoshop.webp" class="w-80px mb-3" alt="">
+                                        <h4>Photoshop</h4>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-6 wow fadeInRight" data-wow-delay=".6s">
+                                    <div class="text-center">
+                                        <img src="images/logo/sketch.webp" class="w-80px mb-3" alt="">
+                                        <h4>Sketch</h4>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-6 wow fadeInRight" data-wow-delay=".7s">
+                                    <div class="text-center">
+                                        <img src="images/logo/xd.webp" class="w-80px mb-3" alt="">
+                                        <h4>Adobe XD</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-2">
+                            <div class="subtitle wow fadeInUp" data-wow-delay=".3s">Coding Skills</div>
+                        </div>
+                        <div class="col-lg-10">                            
+                            <div class="row g-4 gx-5">
+                                <div class="col-md-6 wow fadeInRight" data-wow-delay=".4s">
+                                    <div class="d-skills-bar">
+                                      <div class="d-bar">
+                                        <div class="d-skill" data-value="80%">
+                                            <div class="d-info">
+                                              <span>HTML</span>
+                                            </div>
+                                            <div class="d-progress-line"><span class="d-fill-line"></span></div>
+                                        </div>
+
+                                        <div class="d-skill" data-value="70%">
+                                            <div class="d-info">
+                                              <span>CSS</span>
+                                            </div>
+                                            <div class="d-progress-line"><span class="d-fill-line"></span></div>
+                                        </div>
+
+                                        <div class="d-skill" data-value="82%">
+                                            <div class="d-info">
+                                              <span>BOOTSTRAP</span>
+                                            </div>
+                                            <div class="d-progress-line"><span class="d-fill-line"></span></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 wow fadeInRight" data-wow-delay=".5s">
+                                <div class="d-skills-bar">
+                                    <div class="d-bar">
+                                        <div class="d-skill" data-value="62%">
+                                            <div class="d-info">
+                                              <span>JAVASCRIPT</span>
+                                            </div>
+                                            <div class="d-progress-line"><span class="d-fill-line"></span></div>
+                                        </div>
+
+                                        <div class="d-skill" data-value="90%">
+                                            <div class="d-info">
+                                              <span>PHP</span>
+                                            </div>
+                                            <div class="d-progress-line"><span class="d-fill-line"></span></div>
+                                        </div>
+
+                                        <div class="d-skill" data-value="85%">
+                                            <div class="d-info">
+                                              <span>REACT</span>
+                                            </div>
+                                            <div class="d-progress-line"><span class="d-fill-line"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-2">
+                            <div class="subtitle wow fadeInUp" data-wow-delay=".3s">Experiences</div>
+                        </div>
+                        <div class="col-lg-10">                            
+                            <div class="row g-4">
+                                <div class="col-md-4 wow fadeInRight" data-wow-delay=".4s">
+                                    <h6>2022 – Present</h6>
+                                    <h3>Lead Website Designer</h3>
+                                    <p>Tech Solutions Inc</p>
+                                </div>
+
+                                <div class="col-md-4 wow fadeInRight" data-wow-delay=".5s">
+                                    <h6>2018 - 2022</h6>
+                                    <h3>Mid-Level Website Designer</h3>
+                                    <p>Creativo Web Agency</p>
+                                </div>
+
+                                <div class="col-md-4 wow fadeInRight" data-wow-delay=".6s">
+                                    <h6>2016 - 2018</h6>
+                                    <h3>Junior Website Designer</h3>
+                                    <p>Rocket Web Services</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-2">
+                            <div class="subtitle wow fadeInUp" data-wow-delay=".3s">Education</div>
+                        </div>
+                        <div class="col-lg-10">                            
+                            <div class="row g-4">
+                                <div class="col-md-4 wow fadeInRight" data-wow-delay=".4s">
+                                    <h6>2018</h6>
+                                    <h3>Master in Design</h3>
+                                    <p>New York University</p>
+                                </div>
+
+                                <div class="col-md-4 wow fadeInRight" data-wow-delay=".5s">
+                                    <h6>2014</h6>
+                                    <h3>Bachelor of Arts</h3>
+                                    <p>University of London</p>
+                                </div>
+
+                                <div class="col-md-4 wow fadeInRight" data-wow-delay=".6s">
+                                    <h6>2011</h6>
+                                    <h3>Artist of College</h3>
+                                    <p>University of Sydney</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-2">
+                            <div class="subtitle wow fadeInUp" data-wow-delay=".3s">What They Says</div>
+                        </div>
+                        <div class="col-lg-10">                            
+                            <div class="owl-3-cols-dots owl-carousel owl-theme wow fadeInUp" data-wow-delay=".4s">
+                                <div class="item">
+                                    <div class="de_testi s2">
+                                        <blockquote>
+                                            <div class="de_testi_by">
+                                                <img class="circle" alt="" src="images/testimonial/1.webp"> <div>John Reynolds<span>CEO of Boutique Bliss</span></div>
+                                            </div>
+                                            <p>"Our e-commerce website needed a complete overhaul, and Nathan delivered beyond our expectations. The new design is visually stunning and incredibly user-friendly."
+                                            </p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="de_testi s2">
+                                        <blockquote>
+                                            <div class="de_testi_by">
+                                                <img class="circle" alt="" src="images/testimonial/2.webp"> <div>David Kim<span>Freelance Photographer</span></div>
+                                            </div>
+                                            <p>"Nathan helped me design a personal portfolio website that truly highlights my work as a photographer. The site is clean, modern, and visually appealing – exactly what I wanted."</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="de_testi s2">
+                                        <blockquote>
+                                            <div class="de_testi_by">
+                                                <img class="circle" alt="" src="images/testimonial/3.webp"> <div>Dr. Robert Harris<span>Founder of Harris Clinic</span></div>
+                                            </div>
+                                            <p>"The new site is not only visually appealing but also highly functional, with easy navigation for our patients. The online appointment booking system has been a game-changer."</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="de_testi s2">
+                                        <blockquote>
+                                            <div class="de_testi_by">
+                                                <img class="circle" alt="" src="images/testimonial/4.webp"> <div>Marius Lopez<span>Owner of Lezzato Cafe</span></div>
+                                            </div>
+                                            <p>"Nathan was very responsive to our needs. We’ve received numerous compliments on the new design. Thank you for helping us take our online presence to the next level!"</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="de_testi s2">
+                                        <blockquote>
+                                            <div class="de_testi_by">
+                                                <img class="circle" alt="" src="images/testimonial/5.webp"> <div>Martin Smith<span>Dream Homes Realty</span></div>
+                                            </div>
+                                            <p>"The new site is intuitive and visually appealing, making it easy for clients to find and explore properties. The virtual tour features have significantly enhanced our user experience."</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="de_testi s2">
+                                        <blockquote>
+                                            <div class="de_testi_by">
+                                                <img class="circle" alt="" src="images/testimonial/6.webp"> <div>Jake Peterson<span>Personal Trainer</span></div>
+                                            </div>
+                                            <p>"Nathan created an amazing site that highlights my services, client testimonials, and success stories. The booking system is user-friendly, and the design is clean and professional."</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-md-3 col-sm-6 mb-sm-30">
+                            <div class="de_count text-center fs-15 wow fadeInRight" data-wow-delay=".0s">
+                                <h3 class="fs-48 mb-1"><span class="timer" data-to="8240" data-speed="3000">0</span></h3>
+                                <div class="fs-15">Hours of Works</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-sm-30">
+                            <div class="de_count text-center fs-15 wow fadeInRight" data-wow-delay=".2s">
+                                <h3 class="fs-48 mb-1"><span class="timer" data-to="315" data-speed="3000">0</span></h3>
+                                <div class="fs-15">Projects Done</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-sm-30">
+                            <div class="de_count text-center fs-15 wow fadeInRight" data-wow-delay=".4s">
+                                <h3 class="fs-48 mb-1"><span class="timer" data-to="250" data-speed="3000">0</span></h3>
+                                <div class="fs-15">Satisfied Customers</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-sm-30">
+                            <div class="de_count text-center fs-15 wow fadeInRight" data-wow-delay=".6s">
+                                <h3 class="fs-48 mb-1"><span class="timer" data-to="32" data-speed="3000">0</span></h3>
+                                <div class="fs-15">Awards Winning</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- content close -->
+        
+        <!-- footer begin -->
+        <footer>
             <div class="container-fluid">
-               <div class="row d_flex">
-                  <div class=" col-md-2 col-sm-3 col logo_section">
-                     <div class="full">
-                        <div class="center-desk">
-                           <div class="logo">
-                              <a href="index.html"><img src="images/logo.png" alt="#" /></a>
-                           </div>
+                <div class="px-2">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="d-menu-1 wow" data-wow-delay=".3s">
+                                <ul>
+                                    <li><a href="#">Facebook</a></li>
+                                    <li><a href="#">Twitter</a></li>
+                                    <li><a href="#">Instagram</a></li>
+                                </ul>
+
+                                <p class="no-bottom">All Right Reserved<br>Template By Designesia</p>
+
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="col-md-8 col-sm-9">
-                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                           <ul class="navbar-nav mr-auto">
-                              <li class="nav-item">
-                                 <a class="nav-link" href="index.html">Home</a>
-                              </li>
-                              <li class="nav-item active">
-                                 <a class="nav-link" href="about.html">About</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="we_do.html">What we do</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="portfolio.html">Portfolio </a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="contact.html">Contact Us</a>
-                              </li>
-                           </ul>
+
+                        <div class="col-lg-6 text-lg-end">
+                            <a href="contact.html">
+                                <h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Talk</h2>
+                            </a>
                         </div>
-                     </nav>
-                  </div>
-                  <div class="col-md-2 d_none">
-                     <ul class="email text_align_right">
-                        <li> <a href="Javascript:void(0)"> Login </a></li>
-                        <li> <a href="Javascript:void(0)"> <i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"> </i></a> </li>
-                     </ul>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </header>
-      <!-- end header -->
-      <!-- about -->
-      <div class="about">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage text_align_center">
-                     <h2>About Company</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end about -->
-      <!-- footer -->
-      <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-3">
-                     <a class="logo_footer" href="index.html"><img src="images/logo_footer.png" alt="#" /></a>
-                  </div>
-                  <div class="col-md-9">
-                     <form class="newslatter_form">
-                        <input class="ente" placeholder="Enter your email" type="text" name="Enter your email">
-                        <button class="subs_btn">Sbscribe Now</button>
-                     </form>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                     <div class="Informa helpful">
-                        <h3>Useful  Link</h3>
-                        <ul>
-                           <li><a href="index.html">Home</a></li>
-                           <li><a href="about.html">About</a></li>
-                           <li><a href="we_do.html">What we do</a></li>
-                           <li><a href="portfolio.html">Portfolio</a></li>
-                           <li><a href="contact.html">Contact us</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                     <div class="Informa">
-                        <h3>News</h3>
-                        <ul>
-                           <li>It is a long established                            
-                           </li>
-                           <li>fact that a reader will                           
-                           </li>
-                           <li>be distracted by the                           
-                           </li>
-                           <li>readable content of a                              
-                           </li>
-                           <li>page when                          
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                     <div class="Informa">
-                        <h3>company</h3>
-                        <ul>
-                           <li>It is a long established                             
-                           </li>
-                           <li>fact that a reader will                            
-                           </li>
-                           <li>be distracted by the                          
-                           </li>
-                           <li>readable content of a                              
-                           </li>
-                           <li>page when                          
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                     <div class="Informa conta">
-                        <h3>contact Us</h3>
-                        <ul>
-                           <li> <a href="Javascript:void(0)"> <i class="fa fa-map-marker" aria-hidden="true"></i> Location
-                              </a>
-                           </li>
-                           <li> <a href="Javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i> Call +01 1234567890
-                              </a>
-                           </li>
-                           <li> <a href="Javascript:void(0)"> <i class="fa fa-envelope" aria-hidden="true"></i> demo@gmail.com
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright text_align_left">
-               <div class="container">
-                  <div class="row d_flex">
-                     <div class="col-md-6">
-                        <p>© 2020 All Rights Reserved.  <a href="https://html.design/"> Free Html Template</a></p>
-                     </div>
-                     <div class="col-md-6">
-                        <ul class="social_icon text_align_center">
-                           <li> <a href="Javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
-                           <li> <a href="Javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                           <li> <a href="Javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                           <li> <a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                           <li> <a href="Javascript:void(0)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/custom.js"></script>
-   </body>
+        </footer>
+        <!-- footer close -->
+    </div>
+
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+
+</body>
 </html>
