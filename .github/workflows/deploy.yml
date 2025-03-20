@@ -27,12 +27,27 @@ jobs:
       
     - name: Build the Docker image
       run: |
-        docker build -t ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-${{ github.sha }} -t ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest .
+        docker build --no-cache -t ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-${{ github.sha }} -t ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest . 2>&1 | tee build.log
+      
+    - name: Check Docker build status
+      run: |
+        if [ -s build.log ]; then
+          echo "Docker build log:"
+          cat build.log
+        fi
     
     - name: Push to DockerHub
       run: |
+        echo "Pushing images to DockerHub..."
         docker push ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-${{ github.sha }}
         docker push ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest
+        echo "Push completed"
+    
+    - name: Verify container
+      run: |
+        echo "Verifying container..."
+        docker images
+        docker ps -a
     
     - name: Security Scan with Trivy
       uses: aquasecurity/trivy-action@master

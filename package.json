@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "install-deps": "npm install"
+    "install-deps": "npm install",
+    "docker:build": "docker build -t kuber-01 .",
+    "docker:run": "docker run -p 3000:3000 kuber-01"
   },
   "keywords": [],
   "author": "",

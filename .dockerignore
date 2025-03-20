@@ -3,4 +3,7 @@ npm-debug.log
 Dockerfile
 .dockerignore
 .git
-.gitignore 
+.gitignore
+*.md
+.env
+logs 
