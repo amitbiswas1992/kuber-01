@@ -68,7 +68,7 @@ jobs:
         script: |
           sudo docker pull ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest
           sudo docker rm -f kuber-01-container || true
-          sudo docker run -d -p 80:3000 --name kuber-01-container ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest
+          sudo docker run -d -p 3000:3000 --name kuber-01-container ${{secrets.DOCKER_USERNAME}}/kuber-01:${{ env.BRANCH_NAME }}-latest
     
     - name: Send Slack Notification (Success)
       if: success()
